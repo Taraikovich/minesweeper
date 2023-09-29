@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@mixin cell-colors {
+  border: none;
+  background-color: rgba(198, 209, 102, 0.7);
+  color: #0F1B07;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: 20px;
+  padding: 15px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #5C821A url(./images/jake.jpg);
+  background-size: cover;
+  font-size: 2rem;
+}
+
+.field {
+  //background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  width: 95vw;
+  height: 90vh;
+  max-width: 700px;
+
+  &_10 {
+    font-size: 32px;
+  }
+
+  &_15 {
+    font-size: 25px;
+  }
+
+  &_25 {
+    font-size: 12px;
+  }
+
+  &__block {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 4px solid;
+    border-radius: 10px;
+    align-items: center;
+    font-size: 2rem;
+    color: #C6D166;
+    font-weight: bold;
+    background-color: rgba(92, 130, 26, 0.85);
+    box-shadow: 0px 0px 50px 42px rgba(198, 209, 102, 1);
+    width: 70%;
+    height: 20%;
+  }
+
+  &__results {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(198, 209, 102, 0.7);
+    padding: 10px 30px;
+    color: #0F1B07;
+    font-size: 15px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    flex-basis: 0;
+    //height: 32px;
+  }
+
+  &__cell {
+    border: 2px solid #C6D166;
+    border-radius: 10px;
+    margin: 2px;
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    // width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+
+    &_open {
+      background-color: rgba(198, 209, 102, 0.7);
+    }
+
+    &_null {
+      color: rgba(198, 209, 102, 0);
+    }
+
+    &_bomb {
+      //background-color: red;
+      color: rgba(255, 255, 255, 0);
+      font-size: 1px;
+      background: url(./images/bomb.png) no-repeat center center;
+      background-size: 100%;
+    }
+
+    &_flag {
+      background: rgba(198, 209, 102, 0.65) url(./images/flag.png) no-repeat center center;
+      background-size: 70%;
+    }
+
+    &_0 {
+      color: rgba(198, 209, 102, 0);
+    }
+
+    &_1 {
+      color: blue;
+    }
+
+    &_2 {
+      color: green;
+    }
+
+    &_3 {
+      color: brown;
+    }
+
+    &_4 {
+      color: rosybrown;
+    }
+
+    &_5 {
+      color: violet;
+    }
+
+    &_6 {
+      color: chartreuse;
+    }
+
+    &_7 {
+      color: orangered;
+    }
+
+    &_8 {
+      color: lightgreen;
+    }
+  }
+}
+
+.settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__new-game {
+    @include cell-colors;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  &__level {
+    @include cell-colors;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    padding: 5px;
+  }
+
+  &__bombs {
+    @include cell-colors;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    padding: 5px;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    @include cell-colors;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    border-radius: 20px;
+  }
+
+}
+
+label {
+  font-size: 17px;
+  color: #C6D166;
+  font-weight: bold;
+  text-align: center;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+
+  &__seconds,
+  &__movies,
+  &__flags,
+  &__mines {
+
+    font-size: 2rem;
+    text-align: right;
+    background: url(./images/icons/flag.svg) no-repeat center left;
+    background-size: contain;
+    width: 123px;
+
+    @include cell-colors;
+
+  }
+
+  &__seconds {
+    background: url(./images/timer.png) no-repeat center left;
+    background-size: 30%;
+    background-position-x: 10%;
+    @include cell-colors;
+  }
+
+  &__movies {
+    background: url(./images/cursor.png) no-repeat center left;
+    background-size: 20%;
+    background-position-x: 10%;
+    @include cell-colors;
+  }
+
+  &__flags {
+    background: url(./images/flag.png) no-repeat center left;
+    background-size: 30%;
+    background-position-x: 10%;
+    @include cell-colors;
+  }
+
+  &__mines {
+    background: url(./images/bombNoBG.png) no-repeat center left;
+    background-size: 30%;
+    background-position-x: 5%;
+    @include cell-colors;
+  }
+
+
+}
+
+.muteBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include cell-colors;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 17px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1250px) {
+  .field {
+    height: 880px;
+  }
+  .field__results {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .settings {
+    margin-top: 65px;
+  }
+  .settings__btn {
+    top: 0;
+  }
+
+}
